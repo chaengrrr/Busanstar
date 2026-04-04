@@ -44,11 +44,11 @@
         <div id="contact" class="mt-7">
           <div class="mb-3 text-sm font-semibold text-slate-700" data-i18n="quickContact">Quick Contact</div>
           <div class="flex flex-wrap gap-3">
-            <a href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-yellow-300 text-xs font-bold text-slate-900">K</span><span class="text-sm font-medium text-slate-700">KakaoTalk</span></a>
-            <a href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">L</span><span class="text-sm font-medium text-slate-700">LINE</span></a>
-            <a href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-600 text-xs font-bold text-white">W</span><span class="text-sm font-medium text-slate-700">WeChat</span></a>
-            <a href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">T</span><span class="text-sm font-medium text-slate-700">Telegram</span></a>
-            <a href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-green-600 text-xs font-bold text-white">W</span><span class="text-sm font-medium text-slate-700">WhatsApp</span></a>
+            <a id="link-kakao" href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-yellow-300 text-xs font-bold text-slate-900">K</span><span class="text-sm font-medium text-slate-700">KakaoTalk</span></a>
+            <a id="link-line" href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">L</span><span class="text-sm font-medium text-slate-700">LINE</span></a>
+            <a id="link-wechat" href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-600 text-xs font-bold text-white">W</span><span class="text-sm font-medium text-slate-700">WeChat</span></a>
+            <a id="link-telegram" href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">T</span><span class="text-sm font-medium text-slate-700">Telegram</span></a>
+            <a id="link-whatsapp" href="#" class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-green-600 text-xs font-bold text-white">W</span><span class="text-sm font-medium text-slate-700">WhatsApp</span></a>
           </div>
         </div>
       </div>
@@ -75,7 +75,8 @@
           <h2 class="text-2xl font-bold" data-i18n="pricingTitle">Pricing</h2>
           <p class="mt-1 text-sm text-slate-500" data-i18n="pricingSub">Sample prices. Admin can change later.</p>
         </div>
-        <div class="grid gap-3 md:grid-cols-2">
+        <div id="pricing-grid" class="grid gap-3 md:grid-cols-2">
+          <!-- DB에서 로드 -->
           <div class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-4"><span>Haeundae</span><span class="font-semibold">₩90,000</span></div>
           <div class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-4"><span>Gwangalli</span><span class="font-semibold">₩85,000</span></div>
           <div class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-4"><span>Seomyeon</span><span class="font-semibold">₩70,000</span></div>
@@ -92,30 +93,204 @@
           <h2 class="text-2xl font-bold" data-i18n="bookingTitle">Booking Request</h2>
           <p class="mt-1 text-sm text-slate-500" data-i18n="bookingSub">Submit once. We contact you directly by messenger.</p>
         </div>
-        <form class="grid gap-4 md:grid-cols-2" onsubmit="event.preventDefault(); submitBooking();">
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldType">Trip Type</label><select class="w-full rounded-2xl border border-slate-300 px-4 py-3"><option>Airport → Hotel</option><option>Hotel → Airport</option></select></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldDate">Date</label><input type="date" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldTime">Time</label><input type="time" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldFlight">Flight Number</label><input type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldPickup">Pickup Location</label><input type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldDropoff">Dropoff Location</label><input type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldPassengers">Passengers</label><input type="number" min="4" max="8" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldLuggage">Luggage</label><input type="number" min="0" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldName">Name</label><input type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div><label class="mb-2 block text-sm font-medium" data-i18n="fieldMessenger">Messenger</label><select class="w-full rounded-2xl border border-slate-300 px-4 py-3"><option>KakaoTalk</option><option>LINE</option><option>WeChat</option><option>Telegram</option><option>WhatsApp</option></select></div>
-          <div class="md:col-span-2"><label class="mb-2 block text-sm font-medium" data-i18n="fieldMessengerId">Messenger ID / Phone</label><input type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" /></div>
-          <div class="md:col-span-2"><label class="mb-2 block text-sm font-medium" data-i18n="fieldRequest">Additional Request</label><textarea rows="4" class="w-full rounded-2xl border border-slate-300 px-4 py-3"></textarea></div>
-          <div class="md:col-span-2"><button type="submit" class="w-full rounded-2xl bg-slate-900 px-5 py-4 text-sm font-semibold text-white" data-i18n="submitBtn">Request Booking</button></div>
+        <form id="booking-form" class="grid gap-4 md:grid-cols-2" onsubmit="event.preventDefault(); submitBooking();">
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldType">Trip Type</label>
+            <select id="f-type" class="w-full rounded-2xl border border-slate-300 px-4 py-3">
+              <option value="Airport → Hotel">Airport → Hotel</option>
+              <option value="Hotel → Airport">Hotel → Airport</option>
+            </select>
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldDate">Date</label>
+            <input id="f-date" type="date" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldTime">Time</label>
+            <input id="f-time" type="time" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldFlight">Flight Number</label>
+            <input id="f-flight" type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldPickup">Pickup Location</label>
+            <input id="f-pickup" type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldDropoff">Dropoff Location</label>
+            <input id="f-dropoff" type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldPassengers">Passengers</label>
+            <input id="f-passengers" type="number" min="1" max="8" value="4" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldLuggage">Luggage</label>
+            <input id="f-luggage" type="number" min="0" value="0" class="w-full rounded-2xl border border-slate-300 px-4 py-3" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldName">Name</label>
+            <input id="f-name" type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldMessenger">Messenger</label>
+            <select id="f-messenger" class="w-full rounded-2xl border border-slate-300 px-4 py-3">
+              <option>KakaoTalk</option><option>LINE</option><option>WeChat</option><option>Telegram</option><option>WhatsApp</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldMessengerId">Messenger ID / Phone</label>
+            <input id="f-messenger-id" type="text" class="w-full rounded-2xl border border-slate-300 px-4 py-3" required />
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-sm font-medium" data-i18n="fieldRequest">Additional Request</label>
+            <textarea id="f-request" rows="4" class="w-full rounded-2xl border border-slate-300 px-4 py-3"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <button id="submit-btn" type="submit" class="w-full rounded-2xl bg-slate-900 px-5 py-4 text-sm font-semibold text-white disabled:opacity-50" data-i18n="submitBtn">Request Booking</button>
+          </div>
         </form>
         <div id="done" class="mt-4 hidden rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700" data-i18n="doneMsg">Your booking request has been received. We will contact you via your selected messenger.</div>
+        <div id="error-msg" class="mt-4 hidden rounded-2xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">전송에 실패했습니다. 다시 시도해주세요.</div>
       </div>
     </section>
   </main>
+
 <script>
+// ── Supabase 설정 ──────────────────────────────────────────
+const SUPABASE_URL = 'https://onjsxjcpyqelfhgxupbn.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uanN4amNweXFlbGZoZ3h1cGJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNzYxMjgsImV4cCI6MjA5MDg1MjEyOH0.tX-mroD0v6vNwsT0dk54QUcFv1j3Vf-CzodY_X71IoI';
+
+async function sbFetch(path, options = {}) {
+  const { prefer, ...rest } = options;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'Content-Type': 'application/json',
+      ...(prefer ? { 'Prefer': prefer } : {}),
+    },
+    ...rest,
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.status === 204 ? null : res.json();
+}
+
+// ── 요금 불러오기 ──────────────────────────────────────────
+const DEST_LABELS = {
+  '해운대': 'Haeundae', '광안리': 'Gwangalli', '서면': 'Seomyeon',
+  '남포/BIFF광장': 'Nampo / BIFF Square', '부산역': 'Busan Station', '기장': 'Gijang'
+};
+const EXTRA_KEYS = ['심야추가', '추가경유', '대기요금'];
+
+async function loadPricing() {
+  try {
+    const rows = await sbFetch('pricing?select=destination,price&order=id.asc');
+    if (!rows?.length) return;
+    const grid = document.getElementById('pricing-grid');
+    grid.innerHTML = rows
+      .filter(r => !EXTRA_KEYS.includes(r.destination))
+      .map(r => `
+        <div class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-4">
+          <span>${DEST_LABELS[r.destination] || r.destination}</span>
+          <span class="font-semibold">₩${Number(r.price).toLocaleString()}</span>
+        </div>`).join('');
+  } catch (e) { console.warn('요금 로드 실패:', e); }
+}
+
+// ── 설정(링크/문구) 불러오기 ──────────────────────────────
+async function loadSettings() {
+  try {
+    const rows = await sbFetch('settings?select=key,value');
+    const s = Object.fromEntries(rows.map(r => [r.key, r.value]));
+
+    const linkMap = {
+      'link-kakao': s.link_kakao,
+      'link-line': s.link_line,
+      'link-wechat': s.link_wechat,
+      'link-telegram': s.link_telegram,
+      'link-whatsapp': s.link_whatsapp,
+    };
+    Object.entries(linkMap).forEach(([id, href]) => {
+      if (href) document.getElementById(id).href = href;
+    });
+
+    if (s.main_text) document.querySelectorAll('[data-i18n="heroTitle"]').forEach(el => el.textContent = s.main_text);
+    if (s.sub_text) document.querySelectorAll('[data-i18n="heroSub"]').forEach(el => el.textContent = s.sub_text);
+    if (s.confirm_text) document.querySelectorAll('[data-i18n="doneMsg"]').forEach(el => el.textContent = s.confirm_text);
+  } catch (e) { console.warn('설정 로드 실패:', e); }
+}
+
+// ── 예약 제출 ─────────────────────────────────────────────
+async function submitBooking() {
+  const name       = document.getElementById('f-name').value.trim();
+  const date       = document.getElementById('f-date').value;
+  const time       = document.getElementById('f-time').value;
+  const type       = document.getElementById('f-type').value;
+  const flight     = document.getElementById('f-flight').value.trim();
+  const pickup     = document.getElementById('f-pickup').value.trim();
+  const dropoff    = document.getElementById('f-dropoff').value.trim();
+  const passengers = parseInt(document.getElementById('f-passengers').value) || 1;
+  const luggage    = parseInt(document.getElementById('f-luggage').value) || 0;
+  const messenger  = document.getElementById('f-messenger').value;
+  const messengerId= document.getElementById('f-messenger-id').value.trim();
+  const request    = document.getElementById('f-request').value.trim();
+
+  if (!name || !date || !time || !pickup || !dropoff || !messengerId) {
+    alert('필수 항목을 모두 입력해주세요.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  const errEl = document.getElementById('error-msg');
+  btn.disabled = true;
+  btn.textContent = '전송 중...';
+  errEl.classList.add('hidden');
+
+  try {
+    await sbFetch('bookings', {
+      method: 'POST',
+      prefer: 'return=minimal',
+      body: JSON.stringify({
+        name, date, time, type, flight_number: flight,
+        pickup, dropoff, passengers, luggage,
+        contact_type: messenger, contact_value: messengerId,
+        request, status: '신규',
+      }),
+    });
+    document.getElementById('done').classList.remove('hidden');
+    document.getElementById('booking-form').reset();
+    document.getElementById('done').scrollIntoView({ behavior: 'smooth' });
+  } catch (e) {
+    errEl.classList.remove('hidden');
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+    const lang = document.getElementById('lang').value;
+    btn.textContent = dict[lang]?.submitBtn || 'Request Booking';
+  }
+}
+
+// ── i18n ─────────────────────────────────────────────────
 const dict={en:{brandSub:"Busan Airport Transfer",bookNow:"Book Now",badge:"Gimhae Airport ↔ Hotel",heroTitle:"Busan Airport Pickup & Drop Service",heroSub:"Staria · Luggage Friendly · Multilingual Support",seePricing:"See Pricing",quickContact:"Quick Contact",carTitle:"Comfortable Group Ride",cardPassengersLabel:"Passengers",cardLuggageLabel:"Luggage",cardLuggageValue:"Friendly",cardSupportLabel:"Support",cardSupportValue:"6 Lang",pricingTitle:"Pricing",pricingSub:"Sample prices. Admin can change later.",bookingTitle:"Booking Request",bookingSub:"Submit once. We contact you directly by messenger.",fieldType:"Trip Type",fieldDate:"Date",fieldTime:"Time",fieldFlight:"Flight Number",fieldPickup:"Pickup Location",fieldDropoff:"Dropoff Location",fieldPassengers:"Passengers",fieldLuggage:"Luggage",fieldName:"Name",fieldMessenger:"Messenger",fieldMessengerId:"Messenger ID / Phone",fieldRequest:"Additional Request",submitBtn:"Request Booking",doneMsg:"Your booking request has been received. We will contact you via your selected messenger."},ko:{brandSub:"부산 공항 이동 서비스",bookNow:"예약하기",badge:"김해공항 ↔ 숙소",heroTitle:"부산 공항 픽업·드랍 서비스",heroSub:"스타리아 · 수하물 친화 · 다국어 지원",seePricing:"요금 보기",quickContact:"빠른 문의",carTitle:"편안한 단체 이동",cardPassengersLabel:"탑승 인원",cardLuggageLabel:"수하물",cardLuggageValue:"적재 가능",cardSupportLabel:"지원",cardSupportValue:"6개 언어",pricingTitle:"요금",pricingSub:"임의 가격이며 이후 관리자에서 수정 가능",bookingTitle:"예약 요청",bookingSub:"한 번 신청하면 선택한 메신저로 직접 연락드립니다.",fieldType:"이용 유형",fieldDate:"날짜",fieldTime:"시간",fieldFlight:"항공편명",fieldPickup:"출발 위치",fieldDropoff:"도착 위치",fieldPassengers:"인원",fieldLuggage:"캐리어",fieldName:"이름",fieldMessenger:"연락 수단",fieldMessengerId:"메신저 ID / 전화번호",fieldRequest:"추가 요청사항",submitBtn:"예약 요청하기",doneMsg:"예약 요청이 접수되었습니다. 선택한 연락 수단으로 직접 연락드립니다."},ja:{brandSub:"釜山 空港送迎サービス",bookNow:"予約する",badge:"金海空港 ↔ ホテル",heroTitle:"釜山 空港ピックアップ・ドロップサービス",heroSub:"スタリア · 荷物対応 · 多言語サポート",seePricing:"料金を見る",quickContact:"クイック連絡",carTitle:"快適なグループ移動",cardPassengersLabel:"人数",cardLuggageLabel:"荷物",cardLuggageValue:"対応可能",cardSupportLabel:"対応",cardSupportValue:"6言語",pricingTitle:"料金",pricingSub:"仮の価格です。後で管理画面から変更できます。",bookingTitle:"予約リクエスト",bookingSub:"一度送信すると、選択したメッセンジャーに直接ご連絡します。",fieldType:"利用タイプ",fieldDate:"日付",fieldTime:"時間",fieldFlight:"便名",fieldPickup:"出発地",fieldDropoff:"到着地",fieldPassengers:"人数",fieldLuggage:"荷物数",fieldName:"お名前",fieldMessenger:"連絡手段",fieldMessengerId:"メッセンジャーID / 電話番号",fieldRequest:"追加リクエスト",submitBtn:"予約を送信",doneMsg:"予約リクエストを受け付けました。選択したメッセンジャーでご連絡します。"},"zh-cn":{brandSub:"釜山机场接送服务",bookNow:"立即预订",badge:"金海机场 ↔ 酒店",heroTitle:"釜山机场接送服务",heroSub:"Staria · 行李友好 · 多语言支持",seePricing:"查看价格",quickContact:"快速联系",carTitle:"舒适团体出行",cardPassengersLabel:"人数",cardLuggageLabel:"行李",cardLuggageValue:"可装载",cardSupportLabel:"支持",cardSupportValue:"6种语言",pricingTitle:"价格",pricingSub:"示例价格，之后可在后台修改。",bookingTitle:"预订申请",bookingSub:"提交一次后，我们会通过您选择的聊天工具直接联系您。",fieldType:"行程类型",fieldDate:"日期",fieldTime:"时间",fieldFlight:"航班号",fieldPickup:"出发地点",fieldDropoff:"到达地点",fieldPassengers:"人数",fieldLuggage:"行李数",fieldName:"姓名",fieldMessenger:"联系工具",fieldMessengerId:"聊天ID / 电话号码",fieldRequest:"附加要求",submitBtn:"提交预订",doneMsg:"已收到您的预订申请。我们会通过您选择的聊天工具联系您。"},"zh-tw":{brandSub:"釜山機場接送服務",bookNow:"立即預約",badge:"金海機場 ↔ 飯店",heroTitle:"釜山機場接送服務",heroSub:"Staria · 行李友善 · 多語言支援",seePricing:"查看價格",quickContact:"快速聯絡",carTitle:"舒適團體接送",cardPassengersLabel:"人數",cardLuggageLabel:"行李",cardLuggageValue:"可裝載",cardSupportLabel:"支援",cardSupportValue:"6種語言",pricingTitle:"價格",pricingSub:"示意價格，之後可於後台修改。",bookingTitle:"預約申請",bookingSub:"提交一次後，我們會透過您選擇的通訊工具直接聯絡您。",fieldType:"行程類型",fieldDate:"日期",fieldTime:"時間",fieldFlight:"航班號",fieldPickup:"出發地點",fieldDropoff:"抵達地點",fieldPassengers:"人數",fieldLuggage:"行李數",fieldName:"姓名",fieldMessenger:"聯絡方式",fieldMessengerId:"通訊ID / 電話號碼",fieldRequest:"其他需求",submitBtn:"送出預約",doneMsg:"已收到您的預約申請。我們會透過您選擇的通訊工具聯絡您。"},vi:{brandSub:"Dịch vụ đưa đón sân bay Busan",bookNow:"Đặt ngay",badge:"Sân bay Gimhae ↔ Khách sạn",heroTitle:"Dịch vụ đón tiễn sân bay Busan",heroSub:"Staria · Phù hợp hành lý · Hỗ trợ đa ngôn ngữ",seePricing:"Xem giá",quickContact:"Liên hệ nhanh",carTitle:"Chuyến đi nhóm thoải mái",cardPassengersLabel:"Hành khách",cardLuggageLabel:"Hành lý",cardLuggageValue:"Phù hợp",cardSupportLabel:"Hỗ trợ",cardSupportValue:"6 ngôn ngữ",pricingTitle:"Giá",pricingSub:"Giá mẫu, có thể thay đổi sau trong trang quản trị.",bookingTitle:"Yêu cầu đặt xe",bookingSub:"Gửi một lần, chúng tôi sẽ liên hệ trực tiếp qua ứng dụng nhắn tin bạn chọn.",fieldType:"Loại chuyến đi",fieldDate:"Ngày",fieldTime:"Giờ",fieldFlight:"Số hiệu chuyến bay",fieldPickup:"Điểm đón",fieldDropoff:"Điểm trả",fieldPassengers:"Số người",fieldLuggage:"Số hành lý",fieldName:"Tên",fieldMessenger:"Ứng dụng liên hệ",fieldMessengerId:"ID ứng dụng / Số điện thoại",fieldRequest:"Yêu cầu thêm",submitBtn:"Gửi yêu cầu",doneMsg:"Đã nhận yêu cầu đặt xe. Chúng tôi sẽ liên hệ qua ứng dụng bạn đã chọn."}};
-function applyI18n(lang){const map=dict[lang]||dict.en;document.querySelectorAll("[data-i18n]").forEach(n=>{const k=n.getAttribute("data-i18n");if(map[k])n.textContent=map[k];});localStorage.setItem("kride_lang",lang);document.getElementById("lang").value=lang;}
-function submitBooking(){document.getElementById("done").classList.remove("hidden");}
-const saved=localStorage.getItem("kride_lang")||"en";applyI18n(saved);document.getElementById("lang").addEventListener("change",e=>applyI18n(e.target.value));
+
+function applyI18n(lang) {
+  const map = dict[lang] || dict.en;
+  document.querySelectorAll('[data-i18n]').forEach(n => {
+    const k = n.getAttribute('data-i18n');
+    if (map[k]) n.textContent = map[k];
+  });
+  localStorage.setItem('kride_lang', lang);
+  document.getElementById('lang').value = lang;
+}
+
+// ── 초기화 ────────────────────────────────────────────────
+const saved = localStorage.getItem('kride_lang') || 'en';
+applyI18n(saved);
+document.getElementById('lang').addEventListener('change', e => applyI18n(e.target.value));
+loadPricing();
+loadSettings();
 </script>
 </body>
 </html>
