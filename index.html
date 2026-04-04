@@ -252,8 +252,8 @@ async function submitBooking() {
     await sbFetch('bookings', {
       method: 'POST',
       prefer: 'return=minimal',
-       body: JSON.stringify({
-        name, date, time: time + ':00', type, flight_number: flight,
+      body: JSON.stringify({
+        name, date, time, type, flight_number: flight,
         pickup, dropoff, passengers, luggage,
         contact_type: messenger, contact_value: messengerId,
         request, status: '신규',
