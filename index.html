@@ -174,7 +174,8 @@ async function sbFetch(path, options = {}) {
     ...rest,
   });
   if (!res.ok) throw new Error(await res.text());
-  return res.status === 204 ? null : res.json();
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
 }
 
 // ── 요금 불러오기 ──────────────────────────────────────────
